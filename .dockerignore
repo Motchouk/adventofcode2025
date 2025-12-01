@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+compose.yaml
+compose.override.yaml
+
+# IDE
+.idea
+.vscode
+
+# Dependencies
+vendor/
+
+# Build artifacts
+var/
+public/bundles/
+
+# Tests
+.phpunit.result.cache
+coverage/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
