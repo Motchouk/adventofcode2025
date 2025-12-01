@@ -15,7 +15,7 @@ class InputReader
     public function getInput(string $file): array
     {
         $inputs = [];
-        $content = fopen($this->fileDir . $file, 'r');
+        $content = fopen($this->fileDir . $file .'.txt', 'r');
 
         while (($line = fgets($content)) !== false) {
             $lineWithoutSpaces = trim($line);

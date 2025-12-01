@@ -6,9 +6,9 @@ Feature:
     Scenario: Check part1
         When I request "/day1/1/day1test" using HTTP method "GET"
         Then the status code must be 200
-        And the response should be ""
+        And the response should be "3"
 
     Scenario: Check part2
         When I request "/day1/2/day1test" using HTTP method "GET"
         Then the status code must be 200
-        And the response should be ""
+        And the response should be "16"

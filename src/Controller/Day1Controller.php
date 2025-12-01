@@ -27,13 +27,29 @@ class Day1Controller extends AbstractController
     #[Route('/1/{file}', name: 'day1_1', defaults: ['file' => 'day1'])]
     public function part1(string $file): JsonResponse
     {
+        $lines = $this->inputReader->getInput($file);
 
-        return new JsonResponse('', Response::HTTP_OK);
+        $pos = [];
+        $currentPos = 50;
+        foreach ($lines as $line) {
+            $currentPos = $this->day1services->getNewPositionAnd0Pointers($line, $currentPos)[0];
+            $pos[] = $currentPos;
+        }
+        return new JsonResponse(array_count_values($pos)[0], Response::HTTP_OK);
     }
 
     #[Route('/2/{file}', name: 'day1_2', defaults: ['file' => 'day1'])]
     public function part2(string $file): JsonResponse
     {
-        return new JsonResponse('', Response::HTTP_OK);
+        $lines = $this->inputReader->getInput($file);
+
+        $zeros = 0;
+        $currentPos = 50;
+        foreach ($lines as $line) {
+            [$currentPos, $currentZero] = $this->day1services->getNewPositionAnd0Pointers($line, $currentPos);
+            $zeros += $currentZero + (0 === $currentPos ? 1 : 0);
+        }
+
+        return new JsonResponse($zeros, Response::HTTP_OK);
     }
 }
