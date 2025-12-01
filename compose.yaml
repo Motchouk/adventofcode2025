@@ -1,0 +1,12 @@
+services:
+  php:
+    build:
+      context: .
+      target: php_dev
+    container_name: adventofcode-php
+    volumes:
+      - .:/app:cached
+    environment:
+      APP_ENV: dev
+    stdin_open: true
+    tty: true

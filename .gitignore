@@ -35,3 +35,7 @@ cookie.txt
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+### > ide ###
+.idea/
+###< ide ###
