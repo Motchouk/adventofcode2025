@@ -8,6 +8,7 @@
         "ext-bcmath": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "nelmio/api-doc-bundle": "^5.8",
         "symfony/asset": "7.4",
         "symfony/asset-mapper": "7.4",
         "symfony/console": "*",
@@ -31,6 +32,7 @@
         "symfony/debug-bundle": "*",
         "symfony/monolog-bundle": "*",
         "symfony/phpunit-bridge": "*",
+        "symfony/var-dumper": "7.4",
         "symfony/web-profiler-bundle": "*"
     },
     "config": {
