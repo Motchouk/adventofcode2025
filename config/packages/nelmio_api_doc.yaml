@@ -1,0 +1,9 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Advent of Code 2025 API
+            description: API documentation for Advent of Code 2025 project
+            version: 1.0.0
+    areas:
+        path_patterns:
+            - ^/(?!_|api/doc) # Include all routes except internal routes (_profiler, _wdt) and /api/doc

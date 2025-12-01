@@ -24,14 +24,15 @@ class Day1Controller extends AbstractController
         $this->day1services = $day1services;
     }
 
-    #[Route('/1/{file}', name: 'day1_1', defaults: ['file' => 'day1'])]
+    #[Route('/1/{file}', name: 'day1_1', defaults: ['file' => 'day1.txt'])]
     public function part1(string $file): JsonResponse
     {
+        $data = $this->day1services->process1($file);
 
-        return new JsonResponse('', Response::HTTP_OK);
+        return new JsonResponse($data, Response::HTTP_OK);
     }
 
-    #[Route('/2/{file}', name: 'day1_2', defaults: ['file' => 'day1'])]
+    #[Route('/2/{file}', name: 'day1_2', defaults: ['file' => 'day1.txt'])]
     public function part2(string $file): JsonResponse
     {
         return new JsonResponse('', Response::HTTP_OK);

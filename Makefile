@@ -16,7 +16,7 @@ exec: ## Execute commands in the php container (usage: make exec COMMAND="bin/co
 	@$(DOCKER_COMPOSE) exec php ${COMMAND}
 
 bash: ## Access the shell of the php container
-	@$(DOCKER_COMPOSE) exec php bash
+	@$(DOCKER_COMPOSE) exec php /bin/bash
 
 composer-install: ## Install composer dependencies
 	@$(DOCKER_COMPOSE) exec php composer install
