@@ -19,6 +19,20 @@ class CalendarServices
         return $finalArray;
     }
 
+    public function parseInputWithComma(array $lines)
+    {
+        $finalArray = [];
+        foreach ($lines as $key => $line) {
+            $arrLine = explode(',', $line);
+            foreach ($arrLine as $keyLine => $value) {
+                $arrLine[$keyLine] = $value;
+            }
+            $finalArray[$key] = $arrLine;
+        }
+
+        return $finalArray;
+    }
+
     // a bc turns to ['a',' ','b','c']
     public function parseInputFromStringsToArray(array $lines)
     {
