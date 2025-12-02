@@ -12,3 +12,4 @@ services:
       - "8000:8000"
     stdin_open: true
     tty: true
+    command: php -S 0.0.0.0:8000 -t public

@@ -5,8 +5,6 @@ namespace App\Services;
 
 class InputReader
 {
-    private const EXT = '.txt';
-
     private $fileDir;
 
     public function __construct(string $fileDir)
@@ -17,7 +15,7 @@ class InputReader
     public function getInput(string $file): array
     {
         $inputs = [];
-        $content = fopen($this->fileDir . $file . self::EXT, 'r');
+        $content = fopen($this->fileDir . $file, 'r');
 
         while (($line = fgets($content)) !== false) {
             $lineWithoutSpaces = trim($line);
@@ -27,5 +25,10 @@ class InputReader
         fclose($content);
 
         return $inputs;
+    }
+
+    public function getRawInput(string $file): string
+    {
+        return file_get_contents($this->fileDir . $file);
     }
 }

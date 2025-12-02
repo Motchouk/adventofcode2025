@@ -10,8 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use OpenApi\Attributes as OA;
 
-#[Route('/day1', name: 'day1')]
+#[OA\Tag(name: 'Day 1')]
+#[Route('/day1', name: 'day1', methods: ['GET'])]
 class Day1Controller extends AbstractController
 {
     private InputReader $inputReader;
