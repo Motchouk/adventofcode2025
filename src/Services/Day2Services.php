@@ -9,7 +9,9 @@ class Day2Services
 
     private array $repeatedSequences = [];
 
-    public function process(string $content): int
+    private int $repeatedSequencesSum = 0;
+
+    public function process(string $content, int $part): int
     {
         $ranges = $this->getRanges($content);
 
@@ -17,9 +19,11 @@ class Day2Services
             $this->findInvalidIds($range);
         }
 
-        dump($this->repeatedSequences);
+        if (1 === $part) {
+            return $this->invalidIdsSum;
+        }
 
-        return $this->invalidIdsSum;
+        return $this->repeatedSequencesSum;
     }
 
     private function findInvalidIds(array $range): void
@@ -34,10 +38,16 @@ class Day2Services
                 continue;
             }
 
+            // Part 1
             if ($this->hasRepeatedSequence($stringifiedNum)) {
-                $this->repeatedSequences[] = $stringifiedNum;
                 $this->invalidIds++;
                 $this->invalidIdsSum += $i;
+            }
+
+            // Part 2
+            if ($this->hasRepeatedPattern($stringifiedNum)) {
+                $this->repeatedSequences[] = $i;
+                $this->repeatedSequencesSum += $i;
             }
         }
     }
@@ -82,5 +92,10 @@ class Day2Services
         }
 
         return $ranges;
+    }
+
+    private function hasRepeatedPattern(string $number): bool
+    {
+        return 1 === preg_match('/^(\d+)\1+$/', $number);
     }
 }
