@@ -4,5 +4,8 @@ namespace App\Services;
 
 class Day[calendarDay]Services
 {
-
+    public function process(array $lines, int $part): int
+    {
+        // Implémenter le code ici
+    }
 }
