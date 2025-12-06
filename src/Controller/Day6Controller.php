@@ -31,7 +31,7 @@ class Day6Controller extends AbstractController
     #[Route('/2/{file}', name: 'day6_2', defaults: ["file"=>"day6"])]
     public function part2(string $file): JsonResponse
     {
-        $lines = $this->inputReader->getInput($file.'.txt');
+        $lines = $this->inputReader->getInput($file.'.txt', false);
         $output = $this->day6services->process($lines, 2);
 
         return new JsonResponse($output, Response::HTTP_NOT_ACCEPTABLE);
