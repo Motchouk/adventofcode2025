@@ -38,7 +38,7 @@ class CalendarServices
         $finalArray = [];
 
         foreach ($lines as $key => $line) {
-            $arrLine = explode(' ', $line);
+            $arrLine = preg_split('/\s+/', $line);
             $finalArray[$key] = $arrLine;
         }
 
